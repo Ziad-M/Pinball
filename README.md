@@ -11,17 +11,17 @@ A metallic ball bouncing around hitting various objects. The game is over when t
 Two controllable levers that can kick the ball back up whenever encountered. The speed and direction of the kick differ depending on the speed and position of both the flipper and the ball when kicked.
 # Obstacles
 Obstacles are what we are going to call everything else that the ball can collide with. Each collision may have an effect on the ball and increase/decrease the score by some factor.
-(1) Wall & Ceiling.
-(2)Bumpers : 
+# (1) Wall & Ceiling.
+# (2)Bumpers : 
 Pop bumpers, Thrust bumpers, Vibranium bumpers.
-(3) Kickers/Slingshots
-(4) Rollovers :
+# (3) Kickers/Slingshots
+# (4) Rollovers :
 Speed boosters, Collectables.
-(5) Targets :
+# (5) Targets :
 Score multipliers, Bullseye [Bonus].
-(6) Routers :
+# (6) Routers :
 Switches, Gates, Ramps [Bonus], Lanes [Bonus], Portals [Bonus].
-(7) Extras :
+# (7) Extras :
 Magnets [Bonus], Captives [Bonus Advanced].
 # Phase 1 Requirements
 Reading the layout configuration from a file: Includes the obstacles and initial position and velocity of the ball.
