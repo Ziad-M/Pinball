@@ -12,7 +12,7 @@ Two controllable levers that can kick the ball back up whenever encountered. The
 # Obstacles
 Obstacles are what we are going to call everything else that the ball can collide with. Each collision may have an effect on the ball and increase/decrease the score by some factor.
 # (1) Wall & Ceiling.
-# (2)Bumpers : 
+# (2) Bumpers : 
 Pop bumpers, Thrust bumpers, Vibranium bumpers.
 # (3) Kickers/Slingshots
 # (4) Rollovers :
@@ -23,12 +23,12 @@ Score multipliers, Bullseye [Bonus].
 Switches, Gates, Ramps [Bonus], Lanes [Bonus], Portals [Bonus].
 # (7) Extras :
 Magnets [Bonus], Captives [Bonus Advanced].
-# Phase 1 Requirements
+# Phase 1 :
 Reading the layout configuration from a file: Includes the obstacles and initial position and velocity of the ball.
 Reading user input and control the flippers.
 Drawing all components as well as the live score in the corner of the screen.
 Detecting “Game Over” and displaying the final score.
-# Phase 2
+# Phase 2 :
 Detecting collisions between the ball and the different kinds of obstacles.
 Using the physical properties of the different obstacles to change the ball’s course of motion.
 # Grading Criteria
