@@ -19,8 +19,10 @@ struct Vector2D  // Represents a 2D vector
 };
 
 enum FlipperType { LEFT, RIGHT };
-
+enum GroundType {Left, Right};
+enum MovingDirection {LUp, LDown, RUp, RDown};
 // Should be replaced by a config file!
+#define MAX_OBSTACLES 100
 #define GAME_WIDTH 700
 #define GAME_HEIGHT 750
 #define BALL_RADIUS 10

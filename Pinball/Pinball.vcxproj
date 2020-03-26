@@ -137,6 +137,8 @@
     <ClInclude Include="GameObjects\Collidable.h" />
     <ClInclude Include="GameObjects\Drawable.h" />
     <ClInclude Include="GameObjects\Flipper.h" />
+    <ClInclude Include="GameObjects\Obstacles\Ceiling.h" />
+    <ClInclude Include="GameObjects\Obstacles\Ground.h" />
     <ClInclude Include="GameObjects\Obstacles\Obstacle.h" />
     <ClInclude Include="GameObjects\Obstacles\Wall.h" />
     <ClInclude Include="Interface.h" />
@@ -145,6 +147,8 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObjects\Ball.cpp" />
     <ClCompile Include="GameObjects\Flipper.cpp" />
+    <ClCompile Include="GameObjects\Obstacles\Ceiling.cpp" />
+    <ClCompile Include="GameObjects\Obstacles\Ground.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Wall.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="main.cpp" />

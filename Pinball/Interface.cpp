@@ -118,3 +118,31 @@ void Interface::drawWall(float position)
             };
     window.draw(line, 2, sf::Lines);
 }
+
+void Interface::drawCeiling(float position)
+{
+    sf::Vertex line[] =
+    {
+            sf::Vertex(sf::Vector2f(0, position), outlineColor),
+            sf::Vertex(sf::Vector2f(GAME_WIDTH, position), outlineColor)
+    };
+    window.draw(line, 2, sf::Lines);
+}
+void Interface::drawGround(float position)
+{
+    sf::Vertex line[] =
+    {
+            sf::Vertex(sf::Vector2f(0, position), outlineColor),
+            sf::Vertex(sf::Vector2f(GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), position), outlineColor),
+
+    };
+    window.draw(line, 2, sf::Lines);
+
+    sf::Vertex line2[] =
+    {
+           sf::Vertex(sf::Vector2f(GAME_WIDTH / 2.0f + (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), position), outlineColor),
+           sf::Vertex(sf::Vector2f(GAME_WIDTH, position), outlineColor)
+
+    };
+    window.draw(line2, 2, sf::Lines);
+}

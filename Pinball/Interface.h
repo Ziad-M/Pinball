@@ -30,4 +30,7 @@ public:
     void drawBall(Vector2D center, float radius);  // Draws a ball
     void drawFlipper(FlipperType type, Vector2D center, float length, float angle, float majorRadius, float minorRadius);  // Draws a flipper
     void drawWall(float position);  // Draws a vertical wall
+    void drawCeiling(float position); //Draws a ceiling.
+    void drawGround(float position); //Draws a Ground.
+
 };

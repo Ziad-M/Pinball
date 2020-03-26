@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Drawable.h"
 #include "Collidable.h"
 
@@ -8,6 +7,7 @@ class Flipper: public Drawable, Collidable
 {
 private:
     FlipperType type;  // Left or right flipper
+    MovingDirection direction;
     Vector2D center;  // Center of rotation
     float length;  // Flipper length
     float angle;  // Angle of rotation
@@ -20,4 +20,5 @@ public:
 
     Vector2D collideWith(Ball & ball, float collisionTime) override;
     void draw(Interface & interface) override;
+    void flip(MovingDirection direction);
 };

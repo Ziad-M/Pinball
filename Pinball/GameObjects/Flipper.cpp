@@ -12,3 +12,14 @@ void Flipper::draw(Interface & interface)
 {
     interface.drawFlipper(type, center, length, angle, majorRadius, minorRadius);
 }
+void Flipper::flip(MovingDirection direction)
+{
+    if (direction == LUp && angle > -30)
+        angle-=5;
+    else if (direction == LDown && angle < 30)
+        angle+=5;
+    if (direction == RUp && angle < 30)
+        angle+=5;
+    else if (direction == RDown && angle > -30)
+        angle-=5;
+}
