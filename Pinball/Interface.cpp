@@ -38,6 +38,7 @@ void Interface::drawBall(Vector2D center, float radius)
     window.draw(circle);
 }
 
+
 void Interface::drawFlipper(FlipperType type, Vector2D center, float length, float angle, float majorRadius, float minorRadius)
 {
     float flip = type == LEFT ? 1.0f : -1.0f;
@@ -145,4 +146,39 @@ void Interface::drawGround(float position)
 
     };
     window.draw(line2, 2, sf::Lines);
+}
+
+
+void Interface::drawPop_Bumper(Vector2D center, float radius)
+{
+    sf::CircleShape circle(radius);
+    circle.setOrigin(radius, radius);
+    circle.setOutlineThickness(outlineThickness+5);
+    circle.setOutlineColor(sf::Color::Black);
+    circle.setFillColor(sf::Color::Red);
+    circle.setPosition(center.x, center.y);
+    window.draw(circle);
+}
+
+void Interface::drawThrust_Bumper(Vector2D center, float radius)
+{
+    sf::CircleShape circle(radius);
+    circle.setOrigin(radius, radius);
+    circle.setOutlineThickness(outlineThickness + 5);
+    circle.setOutlineColor(sf::Color::Black);
+    circle.setFillColor(sf::Color::Red);
+    circle.setPosition(center.x, center.y);
+    window.draw(circle);
+}
+
+
+void Interface::drawVibranium_Bumper(Vector2D center, float radius)
+{
+    sf::CircleShape circle(radius);
+    circle.setOrigin(radius, radius);
+    circle.setOutlineThickness(outlineThickness + 40);
+    circle.setOutlineColor(sf::Color::Black);
+    circle.setFillColor(sf::Color::Red);
+    circle.setPosition(center.x, center.y);
+    window.draw(circle);
 }

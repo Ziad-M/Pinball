@@ -17,7 +17,6 @@ private:
 public:
     // The angle should probably be removed from the constructor after adding the controls
     Flipper(FlipperType type, Vector2D center, float length, float angle, float majorRadius, float minorRadius);
-
     Vector2D collideWith(Ball & ball, float collisionTime) override;
     void draw(Interface & interface) override;
     void flip(MovingDirection direction);

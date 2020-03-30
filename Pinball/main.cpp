@@ -1,5 +1,4 @@
 #include "Game.h"
-
 int main()
 {
     // Create an object of ApplicationManager

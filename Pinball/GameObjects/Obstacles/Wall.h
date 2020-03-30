@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Obstacle.h"
 
 // Represents a thin vertically infinite wall, on which the ball can bounce

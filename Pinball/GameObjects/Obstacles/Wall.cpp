@@ -1,5 +1,4 @@
 #include "Wall.h"
-
 #include <cmath>
 using namespace std;
 

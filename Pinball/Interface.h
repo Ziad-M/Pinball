@@ -1,8 +1,6 @@
 #pragma once
-
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
-
 #include "Defs.h"
 
 // Represents the game interface
@@ -32,5 +30,8 @@ public:
     void drawWall(float position);  // Draws a vertical wall
     void drawCeiling(float position); //Draws a ceiling.
     void drawGround(float position); //Draws a Ground.
+    void drawPop_Bumper(Vector2D center, float radius);
+    void drawThrust_Bumper(Vector2D center, float radius);
+    void drawVibranium_Bumper(Vector2D center, float radius);
 
 };

@@ -19,6 +19,12 @@
     <Filter Include="Source Files\GameObjects">
       <UniqueIdentifier>{4ea3b20d-5081-4b93-9071-c363c947812e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameObjects\Obstacles">
+      <UniqueIdentifier>{7e658539-261e-4b22-bc98-9cf14940fd28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects\Obstacles">
+      <UniqueIdentifier>{7e6f6391-d240-44ed-8f6e-64cf360f0960}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Defs.h">
@@ -54,6 +60,18 @@
     <ClInclude Include="GameObjects\Obstacles\Ground.h">
       <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
+    <ClInclude Include="GameObjects\Obstacles\Bumper.h">
+      <Filter>Header Files\GameObjects\Obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Obstacles\Pop_Bumper.h">
+      <Filter>Header Files\GameObjects\Obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Obstacles\Vibranium_Bumper.h">
+      <Filter>Header Files\GameObjects\Obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Obstacles\Thrust_Bumper.h">
+      <Filter>Header Files\GameObjects\Obstacles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -80,5 +98,17 @@
     <ClCompile Include="GameObjects\Obstacles\Wall.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="GameObjects\Obstacles\Pop_Bumper.cpp">
+      <Filter>Source Files\GameObjects\Obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Obstacles\Thrust_Bumper.cpp">
+      <Filter>Source Files\GameObjects\Obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Obstacles\Vibranium_Bumper.cpp">
+      <Filter>Source Files\GameObjects\Obstacles</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

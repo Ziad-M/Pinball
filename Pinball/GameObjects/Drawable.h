@@ -7,4 +7,5 @@ class Drawable
 {
 public:
     virtual void draw(Interface & interface) = 0;  // Uses the interface object to draw itself
+    
 };
