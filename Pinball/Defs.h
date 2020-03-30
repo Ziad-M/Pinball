@@ -17,7 +17,7 @@ struct Vector2D  // Represents a 2D vector
     Vector2D & operator+=(const Vector2D & v) { x += v.x; y += v.y; return *this; }  // Element-wise addition
     Vector2D & operator-=(const Vector2D & v) { x -= v.x; y -= v.y; return *this; }  // Element-wise subtraction
 };
-
+enum KickerType { lft = 1, rigt = -1 };
 enum FlipperType { LEFT, RIGHT };
 enum GroundType {Left, Right};
 enum MovingDirection {LUp, LDown, RUp, RDown};

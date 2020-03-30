@@ -13,6 +13,7 @@
 #include "GameObjects/Obstacles/Thrust_Bumper.h"
 #include "GameObjects/Obstacles/Pop_Bumper.h"
 #include "GameObjects/Obstacles/Vibranium_Bumper.h"
+#include "GameObjects/Obstacles/Kickers.h"
 using namespace std::chrono;
 using namespace std;
 

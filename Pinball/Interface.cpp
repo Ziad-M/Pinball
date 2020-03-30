@@ -182,3 +182,19 @@ void Interface::drawVibranium_Bumper(Vector2D center, float radius)
     circle.setPosition(center.x, center.y);
     window.draw(circle);
 }
+
+void Interface::drawKicker(Vector2D position, KickerType type)
+{
+    float kicker_width = 0.1 * GAME_WIDTH;
+    float kicker_height = 0.1 * GAME_HEIGHT;
+    sf::VertexArray triangle(sf::Triangles, 3);
+    // define the position of the triangle's points
+    triangle[0].position = sf::Vector2f(position.x, position.y);
+    triangle[1].position = sf::Vector2f(position.x + kicker_width * type, position.y);
+    triangle[2].position = sf::Vector2f(position.x, position.y - kicker_height);
+    triangle[0].color = sf::Color::Red;
+    triangle[1].color = sf::Color::Red;
+    triangle[2].color = sf::Color::Red;
+
+    window.draw(triangle);
+}

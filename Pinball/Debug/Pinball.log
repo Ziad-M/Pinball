@@ -1,4 +1,0 @@
-﻿  Game.cpp
-D:\Undergraduate Stuff\Projects\Pinball\Pinball\Game.cpp(87,69): warning C4101: 'property3': unreferenced local variable
-D:\Undergraduate Stuff\Projects\Pinball\Pinball\Game.cpp(87,58): warning C4101: 'property2': unreferenced local variable
-  Pinball.vcxproj -> D:\Undergraduate Stuff\Projects\Pinball\Debug\Pinball.exe

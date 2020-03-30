@@ -84,7 +84,7 @@ void Game::Load(ifstream& file) {
         int num; file >> num;
         for (int i = 0; i < num; i++)
         {
-            float x_coordinate, y_coordinate, property1, property2, property3;
+            float x_coordinate, y_coordinate, property1, property2; int property3 =-1;
                 file >> ObstType;
                 if (ObstType == "POP_BUMPER")
                 {
@@ -97,6 +97,10 @@ void Game::Load(ifstream& file) {
                 else if (ObstType == "VIBRANIUM_BUMPER")
                 {
                     file >> (x_coordinate); file >> (y_coordinate); file >> (property1); mObstList[i] = new Vibranium_Bumper(Vector2D{ x_coordinate,y_coordinate }, property1);
+                }
+                else if (ObstType == "KICKERS")
+                {
+                    file >> (x_coordinate); file >> (y_coordinate); file >> (property1); mObstList[i] = new Kickers(Vector2D{ x_coordinate,y_coordinate }, (KickerType)property3);
                 }
                 mObstCount++;        
         }

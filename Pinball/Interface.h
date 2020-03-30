@@ -33,5 +33,7 @@ public:
     void drawPop_Bumper(Vector2D center, float radius);
     void drawThrust_Bumper(Vector2D center, float radius);
     void drawVibranium_Bumper(Vector2D center, float radius);
+    void drawKicker(Vector2D position, KickerType type);// Draws a kicker
+
 
 };

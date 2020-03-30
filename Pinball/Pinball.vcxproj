@@ -140,6 +140,7 @@
     <ClInclude Include="GameObjects\Obstacles\Bumper.h" />
     <ClInclude Include="GameObjects\Obstacles\Ceiling.h" />
     <ClInclude Include="GameObjects\Obstacles\Ground.h" />
+    <ClInclude Include="GameObjects\Obstacles\Kickers.h" />
     <ClInclude Include="GameObjects\Obstacles\Obstacle.h" />
     <ClInclude Include="GameObjects\Obstacles\Pop_Bumper.h" />
     <ClInclude Include="GameObjects\Obstacles\Thrust_Bumper.h" />
@@ -153,6 +154,7 @@
     <ClCompile Include="GameObjects\Flipper.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Ceiling.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Ground.cpp" />
+    <ClCompile Include="GameObjects\Obstacles\Kickers.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Pop_Bumper.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Thrust_Bumper.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Vibranium_Bumper.cpp" />
