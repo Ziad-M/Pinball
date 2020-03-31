@@ -8,7 +8,7 @@ using namespace std;
 
 Game::Game(): leftFlipper(LEFT, Vector2D { GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f}, FLIPPER_LENGTH, 5.00f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
               rightFlipper(RIGHT, Vector2D { GAME_WIDTH / 2.0f + (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f}, FLIPPER_LENGTH, 5.00f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
-              leftWall(1), rightWall(GAME_WIDTH), Ceiling(1), Lground(Left, GAME_HEIGHT -50), Rground(Right, GAME_HEIGHT - 50)
+    leftWall(1), rightWall(GAME_WIDTH), Ceiling(1), Lground(Left, GAME_HEIGHT - 50), Rground(Right, GAME_HEIGHT - 50), CIE202(Vector2D{ (GAME_WIDTH/2 - 75), (GAME_HEIGHT/2 - 75)})
 {
     mObstCount = 0;
     mObstList = new Obstacle* [MAX_OBSTACLES];
@@ -58,6 +58,7 @@ void Game::updateInterfaceOutput()
     Rground.draw(interface);
     ball.draw(interface);
     for (int i = 0; i < mObstCount; i++) mObstList[i]->draw(interface);
+    CIE202.draw(interface);
     interface.display(); 
 }
 

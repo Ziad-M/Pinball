@@ -198,3 +198,30 @@ void Interface::drawKicker(Vector2D position, KickerType type)
 
     window.draw(triangle);
 }
+
+void Interface::drawCollectables(Vector2D position)
+{
+
+    sf::Font font;
+    sf::Transformable;
+    if (!font.loadFromFile("Philosopher.ttf"))
+    {
+        
+    }
+    sf::Text text;
+
+    text.setFont(font);
+
+    text.setString("C I E 2 0 2");
+
+    text.setCharacterSize(30);
+
+    text.setFillColor(sf::Color::Red);
+
+    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+
+    text.setPosition(position.x, position.y);
+
+    window.draw(text);
+
+}

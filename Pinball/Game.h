@@ -14,6 +14,7 @@
 #include "GameObjects/Obstacles/Pop_Bumper.h"
 #include "GameObjects/Obstacles/Vibranium_Bumper.h"
 #include "GameObjects/Obstacles/Kickers.h"
+#include "GameObjects/Obstacles/Collectables.h"
 using namespace std::chrono;
 using namespace std;
 
@@ -31,6 +32,7 @@ private:
     int mObstCount;				// Actual number of Obstacles
     Obstacle** mObstList;		// List of all Obstacles
     ifstream mRead;
+    Collectables CIE202;
 public:
     Game();
     void readInterfaceInput();
