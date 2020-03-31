@@ -1,4 +1,3 @@
-
 #include "Kickers.h"
 #include<cmath>
 using namespace std;

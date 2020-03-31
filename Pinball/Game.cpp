@@ -100,7 +100,7 @@ void Game::Load(ifstream& file) {
                 }
                 else if (ObstType == "KICKERS")
                 {
-                    file >> (x_coordinate); file >> (y_coordinate); file >> (property1); mObstList[i] = new Kickers(Vector2D{ x_coordinate,y_coordinate }, (KickerType)property3);
+                    file >> (x_coordinate); file >> (y_coordinate); file >> (property3); mObstList[i] = new Kickers(Vector2D{ x_coordinate,y_coordinate }, (KickerType)property3);
                 }
                 mObstCount++;        
         }
