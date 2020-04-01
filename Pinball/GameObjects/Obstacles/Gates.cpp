@@ -2,15 +2,15 @@
 #include<cmath>
 using namespace std;
 
-Gates::Gates()    //Add Parameters if you need
+Gates::Gates(Vector2D Position)    //Add Parameters if you need
 {
-	// Constructor code
+	this->Position=Position;
 	
 }
 
 void Gates::draw (Interface & interface)
 {
-	// your draw code here
+	interface.drawgates(Position);
 }
 
 Vector2D Gates::collideWith(Ball& ball, float collisionTime)

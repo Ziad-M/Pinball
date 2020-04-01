@@ -225,3 +225,13 @@ void Interface::drawCollectables(Vector2D position)
     window.draw(text);
 
 }
+
+void Interface::drawgates(Vector2D Position) {
+    sf::Vertex line[] =
+    {
+        sf::Vertex(sf::Vector2f(Position.x, Position.y), sf::Color::Red),
+        sf::Vertex(sf::Vector2f(Position.x + 30.0f, Position.y + 30.0f), sf::Color::Red)
+    };
+
+    window.draw(line, 2, sf::Lines);
+}

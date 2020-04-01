@@ -103,6 +103,10 @@ void Game::Load(ifstream& file) {
                 {
                     file >> (x_coordinate); file >> (y_coordinate); file >> (property3); mObstList[i] = new Kickers(Vector2D{ x_coordinate,y_coordinate }, (KickerType)property3);
                 }
+                else if (ObstType == "GATES")
+                {
+                    file >> (x_coordinate); file >> (y_coordinate); mObstList[i] = new Gates(Vector2D{ x_coordinate,y_coordinate });
+                }
                 mObstCount++;        
         }
         break;

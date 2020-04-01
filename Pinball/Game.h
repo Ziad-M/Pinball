@@ -15,6 +15,8 @@
 #include "GameObjects/Obstacles/Vibranium_Bumper.h"
 #include "GameObjects/Obstacles/Kickers.h"
 #include "GameObjects/Obstacles/Collectables.h"
+#include "GameObjects/Obstacles/Gates.h"
+
 using namespace std::chrono;
 using namespace std;
 
