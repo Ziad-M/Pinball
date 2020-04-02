@@ -226,12 +226,53 @@ void Interface::drawCollectables(Vector2D position)
 
 }
 
-void Interface::drawgates(Vector2D Position) {
-    sf::Vertex line[] =
-    {
-        sf::Vertex(sf::Vector2f(Position.x, Position.y), sf::Color::Red),
-        sf::Vertex(sf::Vector2f(Position.x + 30.0f, Position.y + 30.0f), sf::Color::Red)
-    };
+void Interface::drawgates(Vector2D Po) {
+    sf::VertexArray line2(sf::Lines, 4);
+    line2[0].position = sf::Vector2f(Po.x, Po.y);
+    line2[1].position = sf::Vector2f(Po.x, Po.y + 600.0f);
+    line2[2].position = sf::Vector2f(Po.x + 30.0f, Po.y);
+    line2[3].position = sf::Vector2f(Po.x + 30.0f, Po.y + 600.0f);
 
-    window.draw(line, 2, sf::Lines);
+    line2[0].color = sf::Color::Green;
+    line2[1].color = sf::Color::Green;
+    line2[2].color = sf::Color::Green;
+    line2[3].color = sf::Color::Green;
+    window.draw(line2);
+}
+
+void Interface::drawswitches(Vector2D Po) {
+    sf::VertexArray line2(sf::Lines, 4);
+    line2[0].position = sf::Vector2f(Po.x, Po.y);
+    line2[1].position = sf::Vector2f(Po.x, Po.y + 600.0f);
+    line2[2].position = sf::Vector2f(Po.x + 30.0f, Po.y);
+    line2[3].position = sf::Vector2f(Po.x + 30.0f, Po.y + 600.0f);
+
+    line2[0].color = sf::Color::Red;
+    line2[1].color = sf::Color::Red;
+    line2[2].color = sf::Color::Red;
+    line2[3].color = sf::Color::Red;
+    window.draw(line2);
+}
+void Interface::drawSpeedBoosters(Vector2D center, float radius)
+{
+    sf::CircleShape circle(radius);
+    circle.setOrigin(radius, radius);
+    circle.setPosition(center.x, center.y);
+    circle.setOutlineColor(sf::Color::White);
+    circle.setFillColor(sf::Color::Yellow);
+
+    sf::CircleShape circle1(radius);
+    circle1.setOrigin(radius, radius);
+    circle1.setPosition(center.x + radius * 3, center.y);
+    circle1.setOutlineColor(sf::Color::White);
+    circle1.setFillColor(sf::Color::Yellow);
+    sf::CircleShape circle2(radius);
+
+    circle2.setOrigin(radius, radius);
+    circle2.setPosition(center.x + radius * 6, center.y);
+    circle2.setOutlineColor(sf::Color::White);
+    circle2.setFillColor(sf::Color::Yellow);
+    window.draw(circle);
+    window.draw(circle1);
+    window.draw(circle2);
 }

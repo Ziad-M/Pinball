@@ -8,7 +8,7 @@ using namespace std;
 
 Game::Game(): leftFlipper(LEFT, Vector2D { GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f}, FLIPPER_LENGTH, 5.00f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
               rightFlipper(RIGHT, Vector2D { GAME_WIDTH / 2.0f + (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f}, FLIPPER_LENGTH, 5.00f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
-    leftWall(1), rightWall(GAME_WIDTH), Ceiling(1), Lground(Left, GAME_HEIGHT - 50), Rground(Right, GAME_HEIGHT - 50), CIE202(Vector2D{ (GAME_WIDTH/2 - 75), (GAME_HEIGHT/2 - 75)})
+    leftWall(1), rightWall(GAME_WIDTH), Ceiling(1), Lground(Left, GAME_HEIGHT - 50), Rground(Right, GAME_HEIGHT - 50), midwall(GAME_WIDTH/2), CIE202(Vector2D{ (GAME_WIDTH/2 - 75), (GAME_HEIGHT/2 - 75)})
 {
     mObstCount = 0;
     mObstList = new Obstacle* [MAX_OBSTACLES];
@@ -57,6 +57,7 @@ void Game::updateInterfaceOutput()
     Lground.draw(interface);
     Rground.draw(interface);
     ball.draw(interface);
+    midwall.draw(interface);
     for (int i = 0; i < mObstCount; i++) mObstList[i]->draw(interface);
     CIE202.draw(interface);
     interface.display(); 
@@ -107,8 +108,21 @@ void Game::Load(ifstream& file) {
                 {
                     file >> (x_coordinate); file >> (y_coordinate); mObstList[i] = new Gates(Vector2D{ x_coordinate,y_coordinate });
                 }
+                else if (ObstType == "SPEEDBOOSTERS")
+                {
+                    file >> (x_coordinate); file >> (y_coordinate), file >> (property1); mObstList[i] = new SpeedBoosters(Vector2D{ x_coordinate,y_coordinate }, property1);
+                }
+                else if (ObstType == "SWITCHES")
+                {
+                    file >> (x_coordinate); file >> (y_coordinate); mObstList[i] = new Switches(Vector2D{ x_coordinate,y_coordinate });
+                }
                 mObstCount++;        
         }
         break;
 	}
+}
+
+Game::~Game()
+{
+    delete[] mObstList;
 }

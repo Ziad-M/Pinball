@@ -2,10 +2,9 @@
 #include<cmath>
 using namespace std;
 
-Gates::Gates(Vector2D Position)    //Add Parameters if you need
+Gates::Gates(Vector2D Position)   
 {
-	this->Position=Position;
-	
+	this->Position = Position;
 }
 
 void Gates::draw (Interface & interface)

@@ -78,6 +78,12 @@
     <ClInclude Include="GameObjects\Obstacles\Collectables.h">
       <Filter>Header Files\GameObjects\Obstacles</Filter>
     </ClInclude>
+    <ClInclude Include="GameObjects\Obstacles\SpeedBoosters.h">
+      <Filter>Header Files\GameObjects\Obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Obstacles\Switches.h">
+      <Filter>Header Files\GameObjects\Obstacles</Filter>
+    </ClInclude>
     <ClInclude Include="GameObjects\Obstacles\Gates.h">
       <Filter>Header Files\GameObjects\Obstacles</Filter>
     </ClInclude>
@@ -120,6 +126,12 @@
       <Filter>Source Files\GameObjects\Obstacles</Filter>
     </ClCompile>
     <ClCompile Include="GameObjects\Obstacles\Collectables.cpp">
+      <Filter>Source Files\GameObjects\Obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Obstacles\SpeedBoosters.cpp">
+      <Filter>Source Files\GameObjects\Obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Obstacles\Switches.cpp">
       <Filter>Source Files\GameObjects\Obstacles</Filter>
     </ClCompile>
     <ClCompile Include="GameObjects\Obstacles\Gates.cpp">

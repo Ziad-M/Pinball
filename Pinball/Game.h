@@ -16,6 +16,10 @@
 #include "GameObjects/Obstacles/Kickers.h"
 #include "GameObjects/Obstacles/Collectables.h"
 #include "GameObjects/Obstacles/Gates.h"
+#include "GameObjects/Obstacles/Switches.h"
+#include "GameObjects/Obstacles/SpeedBoosters.h"
+
+
 
 using namespace std::chrono;
 using namespace std;
@@ -30,7 +34,7 @@ private:
     Ball ball; Vector2D ballpos, ballvel;
     float Gravity;
     Flipper leftFlipper, rightFlipper;  // The right and left flippers
-    Wall leftWall, rightWall; Ceiling Ceiling; Ground Lground, Rground;
+    Wall leftWall, rightWall, midwall; Ceiling Ceiling; Ground Lground, Rground;
     int mObstCount;				// Actual number of Obstacles
     Obstacle** mObstList;		// List of all Obstacles
     ifstream mRead;
@@ -43,5 +47,5 @@ public:
     void AddObstacle(Obstacle* pObst);
     void Load(ifstream& file);
     bool exited();
-
+    ~Game();
 };
