@@ -18,6 +18,8 @@
 #include "GameObjects/Obstacles/Gates.h"
 #include "GameObjects/Obstacles/Switches.h"
 #include "GameObjects/Obstacles/SpeedBoosters.h"
+#include "GameObjects/Obstacles/ScoreMultipler.h"
+#include "GameObjects/Score.h"
 
 
 
@@ -34,11 +36,12 @@ private:
     Ball ball; Vector2D ballpos, ballvel;
     float Gravity;
     Flipper leftFlipper, rightFlipper;  // The right and left flippers
-    Wall leftWall, rightWall, midwall; Ceiling Ceiling; Ground Lground, Rground;
+    Wall leftWall, rightWall; Ceiling Ceiling; Ground Lground, Rground;
     int mObstCount;				// Actual number of Obstacles
     Obstacle** mObstList;		// List of all Obstacles
     ifstream mRead;
     Collectables CIE202;
+    Score lscore;
 public:
     Game();
     void readInterfaceInput();

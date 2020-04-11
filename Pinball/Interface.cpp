@@ -110,6 +110,26 @@ void Interface::drawFlipper(FlipperType type, Vector2D center, float length, flo
     window.draw(bottomLine);
 }
 
+void Interface::drawScore(Vector2D position, bool status)
+{
+
+    sf::Font font;
+    sf::Transformable;
+    if (!font.loadFromFile("Philosopher.ttf"))
+    {
+
+    }
+    sf::Text text;
+    text.setFont(font);
+    if (status) text.setString("GAME OVER! - Final Score = 0");
+    else text.setString("Score = 0");
+    text.setCharacterSize(30);
+    text.setFillColor(sf::Color::Red);
+    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+    text.setPosition(position.x, position.y);
+    window.draw(text);
+
+}
 void Interface::drawWall(float position)
 {
     sf::Vertex line[] =
@@ -229,9 +249,9 @@ void Interface::drawCollectables(Vector2D position)
 void Interface::drawgates(Vector2D Po) {
     sf::VertexArray line2(sf::Lines, 4);
     line2[0].position = sf::Vector2f(Po.x, Po.y);
-    line2[1].position = sf::Vector2f(Po.x, Po.y + 600.0f);
+    line2[1].position = sf::Vector2f(Po.x, Po.y + 30.0f);
     line2[2].position = sf::Vector2f(Po.x + 30.0f, Po.y);
-    line2[3].position = sf::Vector2f(Po.x + 30.0f, Po.y + 600.0f);
+    line2[3].position = sf::Vector2f(Po.x + 30.0f, Po.y + 30.0f);
 
     line2[0].color = sf::Color::Green;
     line2[1].color = sf::Color::Green;
@@ -243,14 +263,28 @@ void Interface::drawgates(Vector2D Po) {
 void Interface::drawswitches(Vector2D Po) {
     sf::VertexArray line2(sf::Lines, 4);
     line2[0].position = sf::Vector2f(Po.x, Po.y);
-    line2[1].position = sf::Vector2f(Po.x, Po.y + 600.0f);
+    line2[1].position = sf::Vector2f(Po.x, Po.y + 30.0f);
     line2[2].position = sf::Vector2f(Po.x + 30.0f, Po.y);
-    line2[3].position = sf::Vector2f(Po.x + 30.0f, Po.y + 600.0f);
+    line2[3].position = sf::Vector2f(Po.x + 30.0f, Po.y + 30.0f);
 
     line2[0].color = sf::Color::Red;
     line2[1].color = sf::Color::Red;
     line2[2].color = sf::Color::Red;
     line2[3].color = sf::Color::Red;
+    window.draw(line2);
+}
+
+void Interface::drawScoreMultipler(Vector2D Po) {
+    sf::VertexArray line2(sf::Lines, 4);
+    line2[0].position = sf::Vector2f(Po.x, Po.y);
+    line2[1].position = sf::Vector2f(Po.x, Po.y + 30.0f);
+    line2[2].position = sf::Vector2f(Po.x + 30.0f, Po.y);
+    line2[3].position = sf::Vector2f(Po.x + 30.0f, Po.y + 30.0f);
+
+    line2[0].color = sf::Color::Cyan;
+    line2[1].color = sf::Color::Cyan;
+    line2[2].color = sf::Color::Cyan;
+    line2[3].color = sf::Color::Cyan;
     window.draw(line2);
 }
 void Interface::drawSpeedBoosters(Vector2D center, float radius)

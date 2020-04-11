@@ -12,9 +12,19 @@ Vector2D Ball::getCenter() const
     return center;
 }
 
+void Ball::setCenter(Vector2D center)
+{
+    this->center = center;
+}
+
 Vector2D Ball::getVelocity() const
 {
     return velocity;
+}
+
+void Ball::setVelocity(Vector2D velocity)
+{
+    this->velocity = velocity;
 }
 
 void Ball::move(Vector2D acceleration, float time)
@@ -27,4 +37,13 @@ void Ball::move(Vector2D acceleration, float time)
 void Ball::draw (Interface & interface)
 {
     interface.drawBall(center, radius);
+}
+
+bool Ball::gameover()
+{
+    if (center.y > (GAME_HEIGHT - 50))
+        return true;
+    else
+        return false;
+
 }

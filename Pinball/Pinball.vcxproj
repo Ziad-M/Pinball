@@ -145,11 +145,13 @@
     <ClInclude Include="GameObjects\Obstacles\Kickers.h" />
     <ClInclude Include="GameObjects\Obstacles\Obstacle.h" />
     <ClInclude Include="GameObjects\Obstacles\Pop_Bumper.h" />
+    <ClInclude Include="GameObjects\Obstacles\ScoreMultipler.h" />
     <ClInclude Include="GameObjects\Obstacles\SpeedBoosters.h" />
     <ClInclude Include="GameObjects\Obstacles\Switches.h" />
     <ClInclude Include="GameObjects\Obstacles\Thrust_Bumper.h" />
     <ClInclude Include="GameObjects\Obstacles\Vibranium_Bumper.h" />
     <ClInclude Include="GameObjects\Obstacles\Wall.h" />
+    <ClInclude Include="GameObjects\Score.h" />
     <ClInclude Include="Interface.h" />
   </ItemGroup>
   <ItemGroup>
@@ -162,11 +164,13 @@
     <ClCompile Include="GameObjects\Obstacles\Ground.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Kickers.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Pop_Bumper.cpp" />
+    <ClCompile Include="GameObjects\Obstacles\ScoreMultipler.cpp" />
     <ClCompile Include="GameObjects\Obstacles\SpeedBoosters.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Switches.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Thrust_Bumper.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Vibranium_Bumper.cpp" />
     <ClCompile Include="GameObjects\Obstacles\Wall.cpp" />
+    <ClCompile Include="GameObjects\Score.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

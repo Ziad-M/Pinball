@@ -87,6 +87,12 @@
     <ClInclude Include="GameObjects\Obstacles\Gates.h">
       <Filter>Header Files\GameObjects\Obstacles</Filter>
     </ClInclude>
+    <ClInclude Include="GameObjects\Obstacles\ScoreMultipler.h">
+      <Filter>Header Files\GameObjects\Obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Score.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -136,6 +142,12 @@
     </ClCompile>
     <ClCompile Include="GameObjects\Obstacles\Gates.cpp">
       <Filter>Source Files\GameObjects\Obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Obstacles\ScoreMultipler.cpp">
+      <Filter>Source Files\GameObjects\Obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Score.cpp">
+      <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

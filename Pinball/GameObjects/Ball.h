@@ -15,9 +15,10 @@ public:
     // Accessors
     float getRadius() const;
     Vector2D getCenter() const;
+    void setCenter(Vector2D center);
     Vector2D getVelocity() const;
-
+    void setVelocity(Vector2D velocity);
     void move (Vector2D acceleration, float time);  // Simulates the ball's motion under uniform acceleration for a period of time
-
     void draw (Interface & interface) override;
+    bool gameover();
 };
