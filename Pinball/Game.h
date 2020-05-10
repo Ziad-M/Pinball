@@ -47,7 +47,6 @@ public:
     void readInterfaceInput();
     void simulate();
     void updateInterfaceOutput();
-    void AddObstacle(Obstacle* pObst);
     void Load(ifstream& file);
     bool exited();
     ~Game();

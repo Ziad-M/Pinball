@@ -7,14 +7,13 @@ using namespace std;
 
 Game::Game(): leftFlipper(LEFT, Vector2D { GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f}, FLIPPER_LENGTH, 5.00f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
               rightFlipper(RIGHT, Vector2D { GAME_WIDTH / 2.0f + (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f}, FLIPPER_LENGTH, 5.00f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
-    leftWall(1), rightWall(GAME_WIDTH), Ceiling(35), Lground(Left, GAME_HEIGHT - 50), Rground(Right, GAME_HEIGHT - 50), CIE202(Vector2D{ (GAME_WIDTH/2 - 75), (GAME_HEIGHT/2 - 75)}), lscore(Vector2D{0,0})
+    leftWall(1), rightWall(GAME_WIDTH), Ceiling(35), Lground(Left, GAME_HEIGHT - 50), Rground(Right, GAME_HEIGHT - 50), CIE202(Vector2D{ (GAME_WIDTH/2 - 75), (GAME_HEIGHT/2 - 75)}), lscore(Vector2D{0,0}) 
 {
     mObstCount = 0;
     mObstList = new Obstacle* [MAX_OBSTACLES];
     for (int i = 0; i < MAX_OBSTACLES; i++) mObstList[i] = NULL;
     mRead.open("Config.txt");
     Load(mRead);
-
     lastFrame = high_resolution_clock::now();
     exit = left = right = false;
 }
@@ -37,6 +36,7 @@ void Game::simulate()
     resultantAcceleration += Ceiling.collideWith(ball, deltaTime);
     resultantAcceleration += Lground.collideWith(ball, deltaTime);
     resultantAcceleration += Rground.collideWith(ball, deltaTime);
+    for (int i = 0; i < mObstCount; i++) resultantAcceleration += mObstList[i]->collideWith(ball, deltaTime);
     ball.move(resultantAcceleration, deltaTime);
     lscore.setstatus(ball.gameover());
     if (left) leftFlipper.flip(LUp);
@@ -50,7 +50,6 @@ void Game::updateInterfaceOutput()
     interface.clear();
     leftFlipper.draw(interface);
     rightFlipper.draw(interface);
-    // The following two lines be replaced with a loop over collidable obstacles
     leftWall.draw(interface);
     rightWall.draw(interface);
     Ceiling.draw(interface);
@@ -122,5 +121,5 @@ void Game::Load(ifstream& file) {
 
 Game::~Game()
 {
-    delete[] mObstList;
+    delete [] mObstList;
 }

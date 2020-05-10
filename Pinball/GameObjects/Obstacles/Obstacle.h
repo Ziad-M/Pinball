@@ -4,7 +4,7 @@
 #include "../Collidable.h"
 
 // An abstract class representing an obstacle
-class Obstacle: public Drawable, Collidable
+class Obstacle: public Drawable, public Collidable
 {
 
 };
