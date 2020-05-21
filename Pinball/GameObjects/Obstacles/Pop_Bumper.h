@@ -12,4 +12,5 @@ public:
    virtual Vector2D getCenter() const;
    virtual void draw (Interface & interface) override;
    Vector2D collideWith(Ball& ball, float collisionTime) override;
+   Vector2D pass(Ball& ball) override;
 };

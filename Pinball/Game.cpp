@@ -38,6 +38,9 @@ void Game::simulate()
     resultantAcceleration += Rground.collideWith(ball, deltaTime);
     for (int i = 0; i < mObstCount; i++) resultantAcceleration += mObstList[i]->collideWith(ball, deltaTime);
     ball.move(resultantAcceleration, deltaTime);
+    Vector2D resultantCenter = { 0, 0 };
+    for (int i = 0; i < mObstCount; i++) resultantCenter += mObstList[i]->pass(ball);
+    ball.teleport(resultantAcceleration);
     lscore.setstatus(ball.gameover());
     if (left) leftFlipper.flip(LUp);
     else leftFlipper.flip(LDown);
@@ -87,7 +90,7 @@ void Game::Load(ifstream& file) {
                 }
                 else if (ObstType == "THRUST_BUMPER")
                 {
-                    file >> (x_coordinate); file >> (y_coordinate); file >> (property1); mObstList[i] = new Thrust_Bumper(Vector2D{ x_coordinate,y_coordinate + 35 }, property1);
+                    file >> (x_coordinate); file >> (   y_coordinate); file >> (property1); mObstList[i] = new Thrust_Bumper(Vector2D{ x_coordinate,y_coordinate + 35 }, property1);
                 }
                 else if (ObstType == "VIBRANIUM_BUMPER")
                 {
@@ -95,7 +98,7 @@ void Game::Load(ifstream& file) {
                 }
                 else if (ObstType == "KICKERS")
                 {
-                    file >> (x_coordinate); file >> (y_coordinate); file >> (property3); mObstList[i] = new Kickers(Vector2D{ x_coordinate,y_coordinate + 35 }, (KickerType)property3);
+                    file >> (x_coordinate); file >> (y_coordinate); file >> (property3); mObstList[i] = new Kickers(Vector2D{ x_coordinate,y_coordinate + 35 }, (KickerType)property3); 
                 }
                 else if (ObstType == "GATES")
                 {

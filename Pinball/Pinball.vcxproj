@@ -151,6 +151,7 @@
     <ClInclude Include="GameObjects\Obstacles\Thrust_Bumper.h" />
     <ClInclude Include="GameObjects\Obstacles\Vibranium_Bumper.h" />
     <ClInclude Include="GameObjects\Obstacles\Wall.h" />
+    <ClInclude Include="GameObjects\Passable.h" />
     <ClInclude Include="GameObjects\Score.h" />
     <ClInclude Include="Interface.h" />
   </ItemGroup>

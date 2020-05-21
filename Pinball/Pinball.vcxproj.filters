@@ -93,6 +93,9 @@
     <ClInclude Include="GameObjects\Score.h">
       <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
+    <ClInclude Include="GameObjects\Passable.h">
+      <Filter>Header Files\GameObjects\Obstacles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">

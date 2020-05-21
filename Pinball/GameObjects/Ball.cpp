@@ -34,6 +34,11 @@ void Ball::move(Vector2D acceleration, float time)
     center += velocity * time - acceleration * time * time * 0.5;
 }
 
+void Ball::teleport(Vector2D center)
+{
+    this->center += center;
+}
+
 void Ball::draw (Interface & interface)
 {
     interface.drawBall(center, radius);
