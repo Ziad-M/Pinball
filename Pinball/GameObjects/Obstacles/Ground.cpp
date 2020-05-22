@@ -30,3 +30,7 @@ Vector2D Ground::collideWith(Ball & ball, float collisionTime)
         return Vector2D {0, 0};
     }
 }
+Vector2D Ground::pass(Ball& ball)
+{
+    return Vector2D{ 0,0 };
+}

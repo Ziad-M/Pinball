@@ -13,7 +13,7 @@ private:
     float angle;  // Angle of rotation
     float majorRadius;  // The radius of the rotation end
     float minorRadius;  // The radius of the other end
-
+    bool collidedLastFrame = false;  // Whether or not the last frame was a collision (to prevent flapping)
 public:
     // The angle should probably be removed from the constructor after adding the controls
     Flipper(FlipperType type, Vector2D center, float length, float angle, float majorRadius, float minorRadius);

@@ -23,5 +23,18 @@ void Thrust_Bumper::draw (Interface & interface)
 
 Vector2D Thrust_Bumper::collideWith(Ball& ball, float collisionTime)
 {
+    if (!collidedLastFrame && (sqrt(pow(this->center.y - ball.getCenter().y, 2) + pow(this->center.x - ball.getCenter().x, 2))) < this->radius + ball.getRadius())
+    {
+        collidedLastFrame = true;
+        return Vector2D{ ball.getVelocity().x * -4, ball.getVelocity().y * -4 } / collisionTime;
+    }
+    else
+    {
+        collidedLastFrame = false;
+        return Vector2D{ 0, 0 };
+    }
+}
+Vector2D Thrust_Bumper::pass(Ball& ball)
+{
     return Vector2D{ 0,0 };
 }

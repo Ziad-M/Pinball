@@ -17,3 +17,7 @@ Vector2D ScoreMultipler::collideWith(Ball& ball, float collisionTime)
 	return Vector2D{ 0,0 };
 	//Phase II
 }
+Vector2D ScoreMultipler::pass(Ball& ball)
+{
+	return Vector2D{ 0,0 };
+}

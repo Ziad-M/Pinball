@@ -39,4 +39,5 @@ public:
     void drawswitches(Vector2D Position);//Draws Switches
     void drawSpeedBoosters(Vector2D center, float radius);
     void drawScoreMultipler(Vector2D Po);
+    void drawlightenedcollectables(Vector2D position);
 };

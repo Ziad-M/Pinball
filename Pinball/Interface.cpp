@@ -245,6 +245,30 @@ void Interface::drawCollectables(Vector2D position)
     window.draw(text);
 
 }
+void Interface::drawlightenedcollectables(Vector2D position)
+{
+    sf::Font font;
+    sf::Transformable;
+    if (!font.loadFromFile("Philosopher.ttf"))
+    {
+
+    }
+    sf::Text text;
+
+    text.setFont(font);
+
+    text.setString("C I E 2 0 2");
+
+    text.setCharacterSize(30);
+
+    text.setFillColor(sf::Color::Blue);
+
+    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+
+    text.setPosition(position.x, position.y);
+
+    window.draw(text);
+}
 
 void Interface::drawgates(Vector2D Po) {
     sf::VertexArray line2(sf::Lines, 4);
@@ -287,6 +311,7 @@ void Interface::drawScoreMultipler(Vector2D Po) {
     line2[3].color = sf::Color::Cyan;
     window.draw(line2);
 }
+
 void Interface::drawSpeedBoosters(Vector2D center, float radius)
 {
     sf::CircleShape circle(radius);

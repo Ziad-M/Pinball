@@ -5,7 +5,7 @@
 #include "Game.h"
 using namespace std;
 
-Game::Game(): leftFlipper(LEFT, Vector2D { GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f}, FLIPPER_LENGTH, 5.00f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
+Game::Game(): leftFlipper(LEFT, Vector2D { GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f }, FLIPPER_LENGTH, 5.00f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
               rightFlipper(RIGHT, Vector2D { GAME_WIDTH / 2.0f + (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f}, FLIPPER_LENGTH, 5.00f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
     leftWall(1), rightWall(GAME_WIDTH), Ceiling(35), Lground(Left, GAME_HEIGHT - 50), Rground(Right, GAME_HEIGHT - 50), CIE202(Vector2D{ (GAME_WIDTH/2 - 75), (GAME_HEIGHT/2 - 75)}), lscore(Vector2D{0,0}) 
 {
@@ -39,8 +39,8 @@ void Game::simulate()
     for (int i = 0; i < mObstCount; i++) resultantAcceleration += mObstList[i]->collideWith(ball, deltaTime);
     ball.move(resultantAcceleration, deltaTime);
     Vector2D resultantCenter = { 0, 0 };
-    for (int i = 0; i < mObstCount; i++) resultantCenter += mObstList[i]->pass(ball);
-    ball.teleport(resultantAcceleration);
+   // for (int i = 0; i < mObstCount; i++) resultantCenter += mObstList[i]->pass(ball);
+    // ball.teleport(resultantAcceleration);
     lscore.setstatus(ball.gameover());
     if (left) leftFlipper.flip(LUp);
     else leftFlipper.flip(LDown);

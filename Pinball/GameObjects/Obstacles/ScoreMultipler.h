@@ -8,4 +8,5 @@ public:
 	ScoreMultipler(Vector2D Position);
 	void draw(Interface& interface) override;
 	virtual Vector2D collideWith(Ball& ball, float collisionTime) override;
+	virtual Vector2D pass(Ball& ball)override;
 };

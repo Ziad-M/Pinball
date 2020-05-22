@@ -22,3 +22,7 @@ Vector2D Wall::collideWith(Ball & ball, float collisionTime)
         return Vector2D {0, 0};
     }
 }
+Vector2D Wall::pass(Ball& ball)
+{
+    return Vector2D{ 0,0 };
+}

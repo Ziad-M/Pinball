@@ -22,3 +22,7 @@ Vector2D Ceiling::collideWith(Ball & ball, float collisionTime)
         return Vector2D {0, 0};
     }
 }
+Vector2D Ceiling::pass(Ball& ball)
+{
+    return Vector2D{ 0,0 };
+}

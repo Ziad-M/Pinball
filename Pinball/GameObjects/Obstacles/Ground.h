@@ -13,6 +13,7 @@ public:
     explicit Ground(GroundType type, float position);
     void draw(Interface & interface) override;
     Vector2D collideWith(Ball & ball, float collisionTime) override;
+    virtual Vector2D pass(Ball& ball)override;
 };
 
 

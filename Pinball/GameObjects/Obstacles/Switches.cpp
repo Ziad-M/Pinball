@@ -18,3 +18,7 @@ Vector2D Switches::collideWith(Ball& ball, float collisionTime)
 	return Vector2D{ 0,0 };
 	//Phase II
 }
+Vector2D Switches::pass(Ball& ball)
+{
+	return Vector2D{ 0,0 };
+}
