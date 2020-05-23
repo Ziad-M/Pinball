@@ -7,7 +7,7 @@ using namespace std;
 
 Game::Game(): leftFlipper(LEFT, Vector2D { GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f }, FLIPPER_LENGTH, 5.00f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
               rightFlipper(RIGHT, Vector2D { GAME_WIDTH / 2.0f + (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f), GAME_HEIGHT - 50.0f}, FLIPPER_LENGTH, 5.00f, FLIPPER_MAJOR_RADIUS, FLIPPER_MINOR_RADIUS),
-    leftWall(1), rightWall(GAME_WIDTH), Ceiling(35), Lground(Left, GAME_HEIGHT - 50), Rground(Right, GAME_HEIGHT - 50), CIE202(Vector2D{ (GAME_WIDTH/2 - 75), (GAME_HEIGHT/2 - 75)}), lscore(Vector2D{0,0}) 
+    leftWall(1), rightWall(GAME_WIDTH), Ceiling(35), Lground(Left, GAME_HEIGHT - 50), Rground(Right, GAME_HEIGHT - 50), CIE202(Vector2D{ (GAME_WIDTH/2 - 75), (GAME_HEIGHT/2 - 75)}) 
 {
     mObstCount = 0;
     mObstList = new Obstacle* [MAX_OBSTACLES];
@@ -31,21 +31,24 @@ void Game::simulate()
     lastFrame = thisFrame;
     float deltaTime = timeSpan.count();  // Delta time in seconds
     Vector2D resultantAcceleration = {0, Gravity};  // Starting with gravity as the first acceleration contributer
-    resultantAcceleration += leftWall.collideWith(ball, deltaTime);
+    resultantAcceleration += leftWall.collideWith(ball, deltaTime); 
     resultantAcceleration += rightWall.collideWith(ball, deltaTime);
     resultantAcceleration += Ceiling.collideWith(ball, deltaTime);
     resultantAcceleration += Lground.collideWith(ball, deltaTime);
     resultantAcceleration += Rground.collideWith(ball, deltaTime);
+    resultantAcceleration += leftFlipper.collideWith(ball, deltaTime);
+    resultantAcceleration += rightFlipper.collideWith(ball, deltaTime);
+    CIE202.collideWith(ball, deltaTime);
     for (int i = 0; i < mObstCount; i++) resultantAcceleration += mObstList[i]->collideWith(ball, deltaTime);
     ball.move(resultantAcceleration, deltaTime);
     Vector2D resultantCenter = { 0, 0 };
-   // for (int i = 0; i < mObstCount; i++) resultantCenter += mObstList[i]->pass(ball);
-    // ball.teleport(resultantAcceleration);
-    lscore.setstatus(ball.gameover());
+    for (int i = 0; i < mObstCount; i++) resultantCenter += mObstList[i]->pass(ball);
+    //ball.teleport(resultantAcceleration);
     if (left) leftFlipper.flip(LUp);
     else leftFlipper.flip(LDown);
     if (right) rightFlipper.flip(RUp);
     else rightFlipper.flip(RDown);
+    ball.setstatus();
 }
 
 void Game::updateInterfaceOutput()
@@ -58,10 +61,9 @@ void Game::updateInterfaceOutput()
     Ceiling.draw(interface);
     Lground.draw(interface);
     Rground.draw(interface);
-    ball.draw(interface);
-    lscore.draw(interface);
     for (int i = 0; i < mObstCount; i++) mObstList[i]->draw(interface);
     CIE202.draw(interface);
+    ball.draw(interface);
     interface.display(); 
 }
 
@@ -77,8 +79,7 @@ void Game::Load(ifstream& file) {
 
 	while (!file.eof()) {
         file >> ballpos.x >> ballpos.y; ballpos.y += 35; ball.setCenter(ballpos);
-        file >> ballvel.x >> ballvel.y; ball.setVelocity(ballvel);
-        file >> Gravity;
+        file >> ballvel.x >> ballvel.y; ball.setVelocity(ballvel); file >> Gravity;
         int num; file >> num;
         for (int i = 0; i < num; i++)
         {
@@ -94,7 +95,7 @@ void Game::Load(ifstream& file) {
                 }
                 else if (ObstType == "VIBRANIUM_BUMPER")
                 {
-                    file >> (x_coordinate); file >> (y_coordinate); file >> (property1); mObstList[i] = new Vibranium_Bumper(Vector2D{ x_coordinate,y_coordinate + 35 }, property1);
+                    file >> (x_coordinate); file >> (y_coordinate); file >> (property1); mObstList[i] = new Vibranium_Bumper(Vector2D{ x_coordinate,y_coordinate + 35 }, property1, Gravity);
                 }
                 else if (ObstType == "KICKERS")
                 {
@@ -114,7 +115,15 @@ void Game::Load(ifstream& file) {
                 }
                 else if (ObstType == "SCORE_MULTIPLIER")
                 {
-                    file >> (x_coordinate); file >> (y_coordinate); mObstList[i] = new ScoreMultipler(Vector2D{ x_coordinate,y_coordinate + 35 });
+                    file >> (x_coordinate); file >> (y_coordinate); file >> (property1); mObstList[i] = new ScoreMultipler(Vector2D{ x_coordinate,y_coordinate + 35 }, property1);
+                }
+                else if (ObstType == "MAGNET")
+                {
+                    file >> (x_coordinate); file >> (y_coordinate); file >> (property1); mObstList[i] = new Magnet(Vector2D{ x_coordinate,y_coordinate + 35 }, property1);
+                }
+                else if (ObstType == "BULLSEYE")
+                {
+                    file >> (x_coordinate); file >> (y_coordinate); file >> (property1); mObstList[i] = new BullsEye(Vector2D{ x_coordinate,y_coordinate + 35 }, property1, Gravity);
                 }
                 mObstCount++;        
         }

@@ -27,7 +27,7 @@ void Interface::display()
     window.display();
 }
 
-void Interface::drawBall(Vector2D center, float radius)
+void Interface::drawBall(Vector2D center, float radius, int score, bool status)
 {
     sf::CircleShape circle(radius);
     circle.setOrigin(radius, radius);
@@ -36,6 +36,21 @@ void Interface::drawBall(Vector2D center, float radius)
     circle.setFillColor(ballFillColor);
     circle.setPosition(center.x, center.y);
     window.draw(circle);
+    //Score Printing
+    sf::Font font;
+    if (!font.loadFromFile("Philosopher.ttf"))
+    {
+
+    }
+    sf::Text text;
+    text.setFont(font);
+    if (status) text.setString("GAME OVER! - Final Score = " + std::to_string(score));
+    else text.setString("Score = " + std::to_string(score));
+    text.setCharacterSize(30);
+    text.setFillColor(sf::Color::Red);
+    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+    text.setPosition(0, 0);
+    window.draw(text);
 }
 
 
@@ -110,26 +125,6 @@ void Interface::drawFlipper(FlipperType type, Vector2D center, float length, flo
     window.draw(bottomLine);
 }
 
-void Interface::drawScore(Vector2D position, bool status)
-{
-
-    sf::Font font;
-    sf::Transformable;
-    if (!font.loadFromFile("Philosopher.ttf"))
-    {
-
-    }
-    sf::Text text;
-    text.setFont(font);
-    if (status) text.setString("GAME OVER! - Final Score = 0");
-    else text.setString("Score = 0");
-    text.setCharacterSize(30);
-    text.setFillColor(sf::Color::Red);
-    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
-    text.setPosition(position.x, position.y);
-    window.draw(text);
-
-}
 void Interface::drawWall(float position)
 {
     sf::Vertex line[] =
@@ -184,9 +179,9 @@ void Interface::drawThrust_Bumper(Vector2D center, float radius)
 {
     sf::CircleShape circle(radius);
     circle.setOrigin(radius, radius);
-    circle.setOutlineThickness(outlineThickness + 5);
+    circle.setOutlineThickness(outlineThickness + 3.5);
     circle.setOutlineColor(sf::Color::Black);
-    circle.setFillColor(sf::Color::Red);
+    circle.setFillColor(sf::Color::Green);
     circle.setPosition(center.x, center.y);
     window.draw(circle);
 }
@@ -196,9 +191,9 @@ void Interface::drawVibranium_Bumper(Vector2D center, float radius)
 {
     sf::CircleShape circle(radius);
     circle.setOrigin(radius, radius);
-    circle.setOutlineThickness(outlineThickness + 40);
+    circle.setOutlineThickness(outlineThickness + 7.5);
     circle.setOutlineColor(sf::Color::Black);
-    circle.setFillColor(sf::Color::Red);
+    circle.setFillColor(sf::Color::Magenta);
     circle.setPosition(center.x, center.y);
     window.draw(circle);
 }
@@ -223,22 +218,21 @@ void Interface::drawCollectables(Vector2D position)
 {
 
     sf::Font font;
-    sf::Transformable;
     if (!font.loadFromFile("Philosopher.ttf"))
     {
-        
+
     }
     sf::Text text;
 
     text.setFont(font);
-
+  
     text.setString("C I E 2 0 2");
 
     text.setCharacterSize(30);
 
     text.setFillColor(sf::Color::Red);
 
-    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+    text.setStyle(sf::Text::Bold);
 
     text.setPosition(position.x, position.y);
 
@@ -248,7 +242,6 @@ void Interface::drawCollectables(Vector2D position)
 void Interface::drawlightenedcollectables(Vector2D position)
 {
     sf::Font font;
-    sf::Transformable;
     if (!font.loadFromFile("Philosopher.ttf"))
     {
 
@@ -261,9 +254,9 @@ void Interface::drawlightenedcollectables(Vector2D position)
 
     text.setCharacterSize(30);
 
-    text.setFillColor(sf::Color::Blue);
+    text.setFillColor(sf::Color::Yellow);
 
-    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+    text.setStyle(sf::Text::Bold);
 
     text.setPosition(position.x, position.y);
 
@@ -287,9 +280,9 @@ void Interface::drawgates(Vector2D Po) {
 void Interface::drawswitches(Vector2D Po) {
     sf::VertexArray line2(sf::Lines, 4);
     line2[0].position = sf::Vector2f(Po.x, Po.y);
-    line2[1].position = sf::Vector2f(Po.x, Po.y + 30.0f);
+    line2[1].position = sf::Vector2f(Po.x, Po.y + 100.0f);
     line2[2].position = sf::Vector2f(Po.x + 30.0f, Po.y);
-    line2[3].position = sf::Vector2f(Po.x + 30.0f, Po.y + 30.0f);
+    line2[3].position = sf::Vector2f(Po.x + 30.0f, Po.y + 100.0f);
 
     line2[0].color = sf::Color::Red;
     line2[1].color = sf::Color::Red;
@@ -298,19 +291,7 @@ void Interface::drawswitches(Vector2D Po) {
     window.draw(line2);
 }
 
-void Interface::drawScoreMultipler(Vector2D Po) {
-    sf::VertexArray line2(sf::Lines, 4);
-    line2[0].position = sf::Vector2f(Po.x, Po.y);
-    line2[1].position = sf::Vector2f(Po.x, Po.y + 30.0f);
-    line2[2].position = sf::Vector2f(Po.x + 30.0f, Po.y);
-    line2[3].position = sf::Vector2f(Po.x + 30.0f, Po.y + 30.0f);
 
-    line2[0].color = sf::Color::Cyan;
-    line2[1].color = sf::Color::Cyan;
-    line2[2].color = sf::Color::Cyan;
-    line2[3].color = sf::Color::Cyan;
-    window.draw(line2);
-}
 
 void Interface::drawSpeedBoosters(Vector2D center, float radius)
 {
@@ -334,4 +315,37 @@ void Interface::drawSpeedBoosters(Vector2D center, float radius)
     window.draw(circle);
     window.draw(circle1);
     window.draw(circle2);
+}
+
+void Interface::drawScoreMultipler(Vector2D center, float radius)
+{
+    sf::CircleShape circle(radius);
+    circle.setOrigin(radius, radius);
+    circle.setOutlineThickness(outlineThickness + 10);
+    circle.setOutlineColor(sf::Color::Magenta);
+    circle.setFillColor(sf::Color::Cyan);
+    circle.setPosition(center.x, center.y);
+    window.draw(circle);
+}
+
+void Interface::drawMagnet(Vector2D center, float radius)
+{
+    sf::CircleShape circle(radius);
+    circle.setOrigin(radius, radius);
+    circle.setOutlineThickness(outlineThickness + 7.5);
+    circle.setOutlineColor(sf::Color::Black);
+    circle.setFillColor(sf::Color::Red);
+    circle.setPosition(center.x, center.y);
+    window.draw(circle);
+}
+
+void Interface::drawBullsEye(Vector2D center, float radius)
+{
+    sf::CircleShape circle(radius);
+    circle.setOrigin(radius, radius);
+    circle.setOutlineThickness(outlineThickness + 7.5);
+    circle.setOutlineColor(sf::Color::Red);
+    circle.setFillColor(sf::Color::Green);
+    circle.setPosition(center.x, center.y);
+    window.draw(circle);
 }

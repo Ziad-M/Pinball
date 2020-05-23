@@ -24,8 +24,7 @@ public:
 
     void clear();  // Clears the frame (first step in rendering a new frame)
     void display();  // Displays the frame (last step in rendering a new frame)
-    void drawScore(Vector2D position, bool status); //Draws collectables (CIE 202)
-    void drawBall(Vector2D center, float radius);  // Draws a ball
+    void drawBall(Vector2D center, float radius, int score, bool status);  // Draws a ball
     void drawFlipper(FlipperType type, Vector2D center, float length, float angle, float majorRadius, float minorRadius);  // Draws a flipper
     void drawWall(float position);  // Draws a vertical wall
     void drawCeiling(float position); //Draws a ceiling.
@@ -38,6 +37,8 @@ public:
     void drawgates(Vector2D Position);//Draws Gates
     void drawswitches(Vector2D Position);//Draws Switches
     void drawSpeedBoosters(Vector2D center, float radius);
-    void drawScoreMultipler(Vector2D Po);
+    void drawScoreMultipler(Vector2D center , float radius);
     void drawlightenedcollectables(Vector2D position);
+    void drawMagnet(Vector2D center, float radius);
+    void drawBullsEye(Vector2D center, float radius);
 };

@@ -13,7 +13,7 @@ Vector2D Ground::collideWith(Ball & ball, float collisionTime)
 {
     if (!collidedLastFrame && abs(position - ball.getCenter().y) < ball.getRadius())
     {
-        if (ball.getCenter().x > (GAME_WIDTH / 2.0f + (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f)) |  ball.getCenter().x < (GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f)))
+        if ((ball.getCenter().x > (GAME_WIDTH / 2.0f + (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f))) ||  (ball.getCenter().x < (GAME_WIDTH / 2.0f - (FLIPPER_LENGTH + FLIPPERS_DISTANCE / 2.0f))))
         {
             collidedLastFrame = true;
             return Vector2D{ 0, ball.getVelocity().y * -2 } / collisionTime;

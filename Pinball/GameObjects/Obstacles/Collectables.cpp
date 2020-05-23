@@ -23,9 +23,9 @@ void Collectables::draw(Interface& interface)
 
 Vector2D Collectables::collideWith(Ball& ball, float collisionTime)
 {
-	Vector2D comparingvector = { position.x - BALL_RADIUS, position.y - BALL_RADIUS };
-	if ((ball.getCenter().x >= comparingvector.x && ball.getCenter().x <= comparingvector.x + (145 + 2 * BALL_RADIUS)) && (ball.getCenter().y >= comparingvector.y && ball.getCenter().y <= comparingvector.y + (23 + 2 * BALL_RADIUS)))
+	if (((sqrt(pow(this->position.y - ball.getCenter().y, 2) + pow(this->position.x - ball.getCenter().x, 2))) < ball.getRadius() + 15) || ((sqrt(pow(this->position.y - ball.getCenter().y, 2) + pow(this->position.x + 15 * 3 - ball.getCenter().x, 2))) < ball.getRadius() + 15) || ((sqrt(pow(this->position.y - ball.getCenter().y, 2) + pow(this->position.x + 15 * 6 - ball.getCenter().x, 2))) < ball.getRadius() + 15))
 	{
+		ball.setscore(25);
 		mode = false;
 	}
 

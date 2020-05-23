@@ -35,20 +35,33 @@ void Ball::move(Vector2D acceleration, float time)
 }
 
 void Ball::teleport(Vector2D center)
-{
+{   
     this->center += center;
 }
 
 void Ball::draw (Interface & interface)
 {
-    interface.drawBall(center, radius);
+    interface.drawBall(center, radius, score, gover);
 }
 
-bool Ball::gameover()
+
+int Ball::getscore() const
+{
+    return score;
+}
+void Ball::setscore(int score)
+{
+    if(!gover) this->score += score;
+}
+
+bool Ball::getstatus()
+{
+    return gover;
+}
+void Ball::setstatus()
 {
     if (center.y > (GAME_HEIGHT - 50))
-        return true;
+        gover = true;
     else
-        return false;
-
+        gover = false;
 }

@@ -90,10 +90,13 @@
     <ClInclude Include="GameObjects\Obstacles\ScoreMultipler.h">
       <Filter>Header Files\GameObjects\Obstacles</Filter>
     </ClInclude>
-    <ClInclude Include="GameObjects\Score.h">
-      <Filter>Header Files\GameObjects</Filter>
-    </ClInclude>
     <ClInclude Include="GameObjects\Passable.h">
+      <Filter>Header Files\GameObjects\Obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Obstacles\Magnet.h">
+      <Filter>Header Files\GameObjects\Obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjects\Obstacles\BullsEye.h">
       <Filter>Header Files\GameObjects\Obstacles</Filter>
     </ClInclude>
   </ItemGroup>
@@ -149,8 +152,11 @@
     <ClCompile Include="GameObjects\Obstacles\ScoreMultipler.cpp">
       <Filter>Source Files\GameObjects\Obstacles</Filter>
     </ClCompile>
-    <ClCompile Include="GameObjects\Score.cpp">
-      <Filter>Source Files\GameObjects</Filter>
+    <ClCompile Include="GameObjects\Obstacles\Magnet.cpp">
+      <Filter>Source Files\GameObjects\Obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjects\Obstacles\BullsEye.cpp">
+      <Filter>Source Files\GameObjects\Obstacles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

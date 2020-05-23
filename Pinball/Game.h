@@ -19,8 +19,8 @@
 #include "GameObjects/Obstacles/Switches.h"
 #include "GameObjects/Obstacles/SpeedBoosters.h"
 #include "GameObjects/Obstacles/ScoreMultipler.h"
-#include "GameObjects/Score.h"
-
+#include "GameObjects/Obstacles/Magnet.h"
+#include "GameObjects/Obstacles/BullsEye.h"
 
 
 using namespace std::chrono;
@@ -41,7 +41,6 @@ private:
     Obstacle** mObstList;		// List of all Obstacles
     ifstream mRead;
     Collectables CIE202;
-    Score lscore;
 public:
     Game();
     void readInterfaceInput();

@@ -1,12 +1,15 @@
-#include "Obstacle.h"
-
-class ScoreMultipler : public Obstacle
+#pragma once
+#include "Bumper.h"
+#include <cmath>
+class ScoreMultipler :  public Bumper
 {
 private:
-	Vector2D Position;
+	bool collidedLastFrame = false;
 public:
-	ScoreMultipler(Vector2D Position);
-	void draw(Interface& interface) override;
-	virtual Vector2D collideWith(Ball& ball, float collisionTime) override;
-	virtual Vector2D pass(Ball& ball)override;
+	ScoreMultipler(Vector2D center, float radius);
+	virtual float getRadius() const;
+	virtual Vector2D getCenter() const;
+	virtual void draw(Interface& interface) override;
+	Vector2D collideWith(Ball& ball, float collisionTime) override;
+	Vector2D pass(Ball& ball)override;
 };
